@@ -1,6 +1,7 @@
 package com.we.littleexpression.adapter;
 
 import android.content.Context;
+import android.graphics.drawable.BitmapDrawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,11 +19,11 @@ import java.util.Map;
  */
 
 public class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapter.mViewHolder> implements View.OnClickListener, View.OnLongClickListener {
-    private ArrayList<Map<String, Object>> data;
+    private ArrayList<BitmapDrawable> data;
     private Context context;
     private OnRecyclerViewClickListener onRecyclerViewClickListener = null;
 
-    public RecyclerviewAdapter(Context context, ArrayList<Map<String, Object>> data) {
+    public RecyclerviewAdapter(Context context, ArrayList<BitmapDrawable> data) {
         this.data = data;
         this.context = context;
     }
@@ -37,8 +38,7 @@ public class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapte
 
     @Override
     public void onBindViewHolder(mViewHolder holder, int position) {
-        Map<String, Object> item = data.get(position);
-        holder.Expression_image.setImageResource(R.drawable.test);
+        holder.Expression_image.setImageDrawable(data.get(position));
         holder.itemView.setTag(position);
     }
 
